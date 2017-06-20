@@ -1,33 +1,24 @@
 "use strict";
 
-angular.module("ngapp").controller("MainController", function(shared, $state, $scope, $mdSidenav, $mdComponentRegistry){
+angular.module('myApp', ['dataGrid', 'pagination', 'ngMaterial'])
+    .controller('myAppController', ['$scope', 'myAppFactory', function ($scope, myAppFactory) {
 
-    var ctrl = this;
+        $scope.gridOptions = {
+            data: [],
+            urlSync: false
+        };
+        myAppFactory.getData().then(function (responseData) {
+            $scope.gridOptions.data = responseData.data;
+        })
 
-    this.auth = shared.info.auth;
-
-    this.toggle = angular.noop;
-
-    this.title = $state.current.title;
-
-
-    this.isOpen = function() { return false };
-    $mdComponentRegistry
-    .when("left")
-    .then( function(sideNav){
-      ctrl.isOpen = angular.bind( sideNav, sideNav.isOpen );
-      ctrl.toggle = angular.bind( sideNav, sideNav.toggle );
+    }])
+    .factory('myAppFactory', function ($http) {
+        return {
+            getData: function () {
+                return $http({
+                    method: 'GET',
+                    url: 'https://angular-data-grid.github.io/demo/data.json'
+                });
+            }
+        }
     });
-
-    this.toggleRight = function() {
-    $mdSidenav("left").toggle()
-        .then(function(){
-        });
-    };
-
-    this.close = function() {
-    $mdSidenav("right").close()
-        .then(function(){
-        });
-    };
-});

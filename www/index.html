@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html ng-app="ngapp">
+<html>
 
   <head>
     <meta charset="utf-8"/>
@@ -9,8 +9,10 @@
     <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
 
     <link rel="stylesheet" type="text/css" href="assets/css/index.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/main.css">
 
     <link rel="stylesheet" type="text/css" href="assets/css/angular-material.min.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/material.indigo-blue.min.css">
 
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,300,300italic,400italic,500,500italic,700,700italic">
@@ -21,7 +23,12 @@
     <script type="text/javascript" src="assets/lib/angular-ui-router.min.js"></script>
     <script type="text/javascript" src="assets/lib/angular-aria.min.js"></script>
     <script type="text/javascript" src="assets/lib/angular-animate.min.js"></script>
+    <script type="text/javascript" src="assets/lib/angular-messages.min.js"></script>
+    
     <script type="text/javascript" src="assets/lib/ngStorage.min.js"></script>
+
+    <script type="text/javascript" src="assets/lib/pagination.js"></script>
+    <script type="text/javascript" src="assets/lib/dataGrid.js"></script>
 
     <!-- Angular Material -->
     <script type="text/javascript" src="assets/lib/angular-material.min.js"></script>
@@ -45,10 +52,9 @@
     <title>CSR Demo</title>
   </head>
 
-  <body style="position: fixed;" ng-cloak>
+  <body style="position: fixed;">
     
-	<ui-view><h1>Chandra</h1></ui-view>
-	
-	
+	<ui-view></ui-view>
+
   </body>
 </html>
