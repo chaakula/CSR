@@ -1,57 +1,31 @@
-# cordova-angular-angularMaterial-seed
+# CSRDemo
 
-A seed for projects using Cordova + AngularJS + Angular-Material
-(Note: this isn't an Ionic Framework Seed)
+This project was generated with [angular-cli](https://github.com/angular/angular-cli) version 1.0.0-beta.28.3.
 
-Just clone it to your computer, run the command `cordova serve`, and use it to initialize your projects.
+## Development server
+Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
-* The directory structure is based on this topic:
+## Code scaffolding
 
-  https://scotch.io/tutorials/angularjs-best-practices-directory-structure
+Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive/pipe/service/class/module`.
 
-* When looking for Plugins, you should look here:
+## Build
 
-  http://ngcordova.com/docs/plugins/
-  
-  But you can also use other plugins from standard cordova or anything(where) else.
+Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
 
-* There are places in the index.html to load your javascript files on the top of the file, please use it as a guide. (Since it's an app, the files should be load at the start, so the first paint will be complete)
+## Running unit tests
 
-* Any time you need to use a cordova plugin, make sure to wrap it in a 'deviceready' event listener like so:
-  ```javascript
-    document.addEventListener("deviceready", function () {
-    //your plugin code here
-  }, false);
-  ```
-  There's one example of this use in app.js
+Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
 
-* Here's a list of Angular-Material Icon and how to use them:
-  
-  https://klarsys.github.io/angular-material-icons/
+## Running end-to-end tests
 
-* The Angular-Material documentation is here:
+Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+Before running the tests make sure you are serving the app via `ng serve`.
 
-  https://material.angularjs.org/latest/
+## Deploying to GitHub Pages
 
-* Here's the documentation for Google's Material Design Style, take a little look and keep the styles in your mind:
+Run `ng github-pages:deploy` to deploy to GitHub Pages.
 
-  http://www.google.com/design/spec/material-design/introduction.html#
-  Keep you main color search here: (This will save your life/time)
-  http://www.google.com/design/spec/style/color.html#color-color-palette
+## Further help
 
-* If you want to debug on Google Chrome, use [Brackets](http://brackets.io/), Node Server or even ISS Express.
-  
-  Unfortunately, the cordova server isn't supporting the application, but I'm looking for a solution.
-
-* If you want to debug on an Android device, connect the device on your computer via usb and use:
-  
-  `cordova run android --device` (MS Windows requires specific drivers for your device)
-  
-  Also use Chrome's Developer Tools ( chrome://inspect/#devices )
-
-* This project is my favorite son, I'll always keep improving it, so anything you want to share with me or any questions you can ask me and/or open an issue, just make a good title so anyone can know what it's about.
-
-* Keep in mind that information and knowledge always get better when it's shared with anyone, feel free to use this seed, but still I'd be glad if you mention this repository on your code or repository or share it with your friends. Also, if you do something, I would be glad to receive a link showing your repository or work.
-  
-### I'm pretty sure that:
-![That's all Folks!](http://junkee.com/wp-content/uploads/2013/08/thats-all-folks-7172-1280x800.jpg)
+To get more help on the `angular-cli` use `ng help` or go check out the [Angular-CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
