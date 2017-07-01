@@ -43,7 +43,7 @@ class Server {
       //     console.log(req.file);
       //     res.json({image: 'http://localhost:1337/'+req.file.path})
       // });
-        this.app.get('/api/comments', (req, res) => {
+        this.app.get('/api/users', (req, res) => {
             this.fs.readFile(this.dataFile, (err, data) => {
                 if (err) {
                     console.error(err);
@@ -52,7 +52,7 @@ class Server {
                 res.json(JSON.parse(data));
             });
         });
-        this.app.post('/api/comments', (req, res) => {
+        /*this.app.post('/api/comments', (req, res) => {
             this.fs.readFile(this.dataFile, (err, data) => {
                 if (err) {
                     console.error(err);
@@ -144,7 +144,7 @@ class Server {
                     res.json(comments);
                 });
             });
-        });
+        });*/
     }
 
     listen(port){
