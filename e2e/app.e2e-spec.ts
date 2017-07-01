@@ -1,14 +1,14 @@
-import { CSRDemoPage } from './app.po';
+import { CSRPage } from './app.po';
 
-describe('csrdemo App', function() {
-  let page: CSRDemoPage;
+describe('csr App', () => {
+  let page: CSRPage;
 
   beforeEach(() => {
-    page = new CSRDemoPage();
+    page = new CSRPage();
   });
 
-  it('should display message saying app works', () => {
+  it('should display welcome message', () => {
     page.navigateTo();
-    expect(page.getParagraphText()).toEqual('app works!');
+    expect(page.getParagraphText()).toEqual('Welcome to app!!');
   });
 });
