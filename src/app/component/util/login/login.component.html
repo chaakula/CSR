@@ -1,0 +1,15 @@
+<br><br><br>
+<div class="container">
+  <form [formGroup]="rForm" (ngSubmit)="onSignIn(rForm.value)" ng-class="{'submitted': submitted}">
+    <h2 class="form-signin-heading">Please sign in</h2>
+    <label for="userId">User Id</label>
+    <input type="text" id="userId" class="form-control" placeholder="User Id" required="" autofocus="" formControlName="userId"
+      maxlength="15">
+
+    <label for="inputPassword" class="mt-15">Password</label>
+    <input type="password" id="inputPassword" class="form-control" placeholder="Password" required="" formControlName="password"
+      maxlength="15">
+
+    <button class="btn btn-lg btn-primary btn-block mt-15" type="submit" [disabled]="!rForm.valid">Sign in</button>
+  </form>
+</div>
