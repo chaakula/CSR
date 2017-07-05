@@ -7,17 +7,31 @@ import { Http, Response, Headers, RequestOptions } from '@angular/http';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './component/util/login/login.component';
 import { NavbarComponent } from './component/navbar/navbar.component';
+import { HomeComponent } from './component/dashboard/home/home.component';
+import { RouterModule }   from '@angular/router';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    NavbarComponent
+    NavbarComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
     HttpModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    RouterModule.forRoot([
+      {
+        path: 'home',
+        component: HomeComponent
+      },
+      {
+        path: '',
+        component: LoginComponent
+      }
+      
+    ])
   ],
   providers: [],
   bootstrap: [AppComponent]

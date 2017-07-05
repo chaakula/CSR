@@ -1,12 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Http, Response, Headers, RequestOptions } from '@angular/http';
+import { LoginService } from '../../../services/util/login.service';
+import {Router} from '@angular/router';
 
 import 'rxjs/add/operator/map';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
+  providers: [LoginService],
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
@@ -16,9 +19,9 @@ export class LoginComponent implements OnInit {
   password: string = '';
   userId: string = '';
   submitBtn: boolean = false;
-  private commentsUrl = 'http://localhost:3000/api/users';
+  //private commentsUrl = 'http://localhost:3000/api/users';
 
-  constructor(private fb: FormBuilder, private http: Http) {
+  constructor(private fb: FormBuilder, private http: Http,private loginService : LoginService,private router:Router) {
 
     this.rForm = fb.group({
       'userId': [null, Validators.compose([Validators.required, Validators.minLength(3), Validators.maxLength(15)])],
@@ -28,16 +31,7 @@ export class LoginComponent implements OnInit {
     this.submitBtn = false;
   }
 
-  getUsers() {
-    // ...using get request
-    var resp = this.http.get('https://api.myjson.com/bins/wdrv3').map((res: Response) => res.json());
-    var bodyString = JSON.stringify(resp);
-    console.log(bodyString);
-    return resp;
-  }
-
-
-  ngOnInit() {
+ ngOnInit() {
     this.rForm.get('validate').valueChanges.subscribe(
       (validate) => {
         this.rForm.get('userId').setValidators([Validators.required, Validators.minLength(3)]);
@@ -51,13 +45,15 @@ export class LoginComponent implements OnInit {
   }
 
   onSignIn(loginForm) {
-    this.userId = loginForm.userId;
-    this.password = loginForm.password;
-
-    console.log(this.userId);
-    console.log(this.password);
-
-    this.getUsers();
+    let userName = this.loginService.getUserId();
+    let userPassword = this.loginService.getUserId();
+    
+    if(loginForm.userId === userName && loginForm.password === userPassword){
+      console.log('User authenticated');
+      this.router.navigate(['/home']);
+    } else {
+      console.log('Invalid Cridentials');
+    }
 
   }
 
