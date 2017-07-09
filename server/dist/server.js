@@ -90,18 +90,18 @@ var Server = function () {
                         process.exit(1);
                     }
                     var comments = JSON.parse(data);
-                     var newComment = {
+                      var newComment = {
                         id: Date.now(),
                         author: req.body.author,
                         text: req.body.text,
                     };
-                     comments.push(newComment);
+                      comments.push(newComment);
                     this.fs.writeFile(this.dataFile, JSON.stringify(comments, null, 4), (err) => {
                         if (err) {
                             console.error(err);
                             process.exit(1);
                         }
-                         this.twilioClient.messages.create({
+                          this.twilioClient.messages.create({
                           body: `Message from ${req.body.author}. Content: ${req.body.text}`,
                           to: process.env.TWILIO_TO,
                           from: process.env.TWILIO_FROM
@@ -134,7 +134,7 @@ var Server = function () {
                     });
                     findCommentById[0].text = req.body.text;
                     findCommentById[0].author = req.body.author;
-                     comments.splice(idIndex, 1, findCommentById[0]);
+                      comments.splice(idIndex, 1, findCommentById[0]);
                      this.fs.writeFile(this.dataFile, JSON.stringify(comments, null, 4), function(err) {
                         if (err) {
                             console.error(err);
@@ -158,10 +158,10 @@ var Server = function () {
                             return comment;
                         }
                     });
-                     if(idIndex >= 0){
+                      if(idIndex >= 0){
                         comments.splice(idIndex, 1);
                     }
-                      this.fs.writeFile(this.dataFile, JSON.stringify(comments, null, 4), function(err) {
+                       this.fs.writeFile(this.dataFile, JSON.stringify(comments, null, 4), function(err) {
                         if (err) {
                             console.error(err);
                             process.exit(1);
