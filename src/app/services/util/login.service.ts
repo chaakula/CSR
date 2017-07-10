@@ -11,8 +11,8 @@ import { User } from '../../model/users';
 export class LoginService {
 
   // https://api.myjson.com/bins/wdrv3  user data saved globally
- // private usersUrl = 'http://localhost:3000/api/users';
-   private usersUrl = 'https://api.myjson.com/bins/qjgvj';
+  // private usersUrl = 'http://localhost:3000/api/users';
+  private usersUrl = 'https://api.myjson.com/bins/qjgvj';
 
   constructor(private http: Http) { }
 
