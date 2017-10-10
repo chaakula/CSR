@@ -1,11 +1,178 @@
 <br><br><br>
-<div class="container-fluid">
-    <div class="row">
-        <div class="col-md-6 col-sm-6">
-            First Div
+<section class="container-fluid container">
+    <form class="bg-white px4 pb2" (ngSubmit)="evaluate()" #loginForm="ngForm">
+
+        <div class="row">
+            <div class="col-sm-6">
+                <h4><b>CUSTOMER INFORMATION</b></h4>
+                <div class="form-group">
+                    <label for="r1">First Time Buyer</label>
+                    <div>
+                        <div class="radio-inline">
+                            <label><input type="radio" name="r1" id="r1" value="Y" [(ngModel)]="customerInfo.firstTimeBuyer" > Yes</label>
+                        </div>
+                        <div class="radio-inline">
+                            <label><input type="radio" name="r1" id="r2" value="N"  checked> No</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Full Name*" [(ngModel)]="customerInfo.fullName" required/>
+                </div>
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Address*" required/>
+                </div>
+                <div class="form-group row">
+                    <div class="col-sm-6">
+                        <input type="text" class="form-control" placeholder="State*" required/>
+                    </div>
+                    <div class="col-sm-6">
+                        <input type="text" class="form-control" placeholder="Zip Code*" required/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Social Security Number" />
+                </div>
+                <div class="form-group">
+                    <select class="form-control" name="s1" required>
+                        <option value="">Job Time (Months)*</option>
+                        <option value="6">6 Months</option>
+                        <option value="12">12 Months</option>
+                        <option value="24">24 Months</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <select class="form-control" name="s1" required>
+                        <option value="">Pay Frequency*</option>
+                        <option value="w">Weekly</option>
+                        <option value="b">Bi-Weekly</option>
+                        <option value="m">Monthly</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="r1">What are your paid per pay period? <br />(gross before taxes)*</label>
+                    <input type="text" class="form-control" placeholder="Type response here" />
+                </div>
+                <div class="form-group">
+                    <label for="r1">Co-Signer *</label>
+                    <div>
+                        <div class="radio-inline">
+                            <label><input type="radio" name="r3" id="r3" value="r3"> Yes</label>
+                        </div>
+                        <div class="radio-inline">
+                            <label><input type="radio" name="r3" id="r4" value="r4" checked> No</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Full Name*" required/>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Address*" required/>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-sm-6">
+                            <input type="text" class="form-control" placeholder="State*" required/>
+                        </div>
+                        <div class="col-sm-6">
+                            <input type="text" class="form-control" placeholder="Zip Code*" required/>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Social Security Number" />
+                    </div>
+                    <div class="form-group">
+                        <select class="form-control" name="s1" required>
+                        <option value="">Job Time (Months)*</option>
+                        <option value="6">6 Months</option>
+                        <option value="12">12 Months</option>
+                        <option value="24">24 Months</option>
+                    </select>
+                    </div>
+                    <div class="form-group">
+                        <select class="form-control" name="s1" required>
+                        <option value="">Pay Frequency*</option>
+                        <option value="w">Weekly</option>
+                        <option value="b">Bi-Weekly</option>
+                        <option value="m">Monthly</option>
+                    </select>
+                    </div>
+
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <h4><b>LOAN INFORMATION</b></h4>
+                <div class="form-group pd10">
+                    <input type="text" class="form-control" placeholder="Down Payment" />
+                </div>
+                <div class="form-group">
+                    <label for="r1">Payment Range:</label>
+                    <div class="row">
+                        <div class="col-sm-5">
+                            <input type="text" class="form-control" placeholder="Min" />
+                        </div>
+                        <div class="col-sm-2 form-control-static text-center">-</div>
+                        <div class="col-sm-5">
+                            <input type="text" class="form-control" placeholder="Max" />
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-sm-6">
+                        <input type="text" class="form-control" placeholder="State*" required/>
+                    </div>
+                    <div class="col-sm-6">
+                        <input type="text" class="form-control" placeholder="Zip Code*" required/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Vehical Year*" required />
+                </div>
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Vehical Mileage*" required />
+                </div>
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Vehical Book Value*" required />
+                </div>
+                <div class="form-group">
+                    <label for="r1">Tradein: *</label>
+                    <div>
+                        <div class="radio-inline">
+                            <label><input type="radio" name="r5" id="r5" value="r5"> Yes</label>
+                        </div>
+                        <div class="radio-inline">
+                            <label><input type="radio" name="r5" id="r6" value="r6" checked> No</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Trade Amount Owed*" required />
+                </div>
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Tradein Amount To Credit*" required />
+                </div>
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Vehical Book Value*" required />
+                </div>
+                <div class="form-group">
+                    <label for="r1">Loan Term Length</label>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <input type="text" class="form-control" placeholder="--" />
+                        </div>
+                        <div class="col-sm-6">
+                            <p class="form-control-static">Months</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="col-md-6 col-sm-6">
-            Second Div
+        <div>
+            <button type="button" class="btn btn-default text-uppercase mln2">Clear Info</button>
+            <button type="submit" class="btn btn-primary text-uppercase pull-right mrn2">Evaluate</button>
         </div>
-    </div>
-</div>
+    </form>
+</section>
