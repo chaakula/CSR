@@ -9,13 +9,16 @@ import { LoginComponent } from './component/util/login/login.component';
 import { NavbarComponent } from './component/navbar/navbar.component';
 import { HomeComponent } from './component/dashboard/home/home.component';
 import { RouterModule }   from '@angular/router';
+import { AdminComponent } from './component/dashboard/admin/admin.component';
+import { RegistrationService } from './services/registration.service';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     NavbarComponent,
-    HomeComponent
+    HomeComponent,
+    AdminComponent
   ],
   imports: [
     BrowserModule,
@@ -24,8 +27,12 @@ import { RouterModule }   from '@angular/router';
     FormsModule,
     RouterModule.forRoot([
       {
-        path: 'home',
+        path: 'user',
         component: HomeComponent
+      },
+      {
+        path: 'admin',
+        component: AdminComponent
       },
       {
         path: '',
@@ -34,7 +41,7 @@ import { RouterModule }   from '@angular/router';
       
     ])
   ],
-  providers: [],
+  providers: [RegistrationService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -33,7 +33,12 @@ export class LoginComponent implements OnInit {
   onLogin() {
     for (let user of this.users) {
       if (this.user.userid === user.userid && this.user.password === user.password) {
-        this.router.navigate(['/home']);
+        if(this.user.userid == 'admin'){
+          this.router.navigate(['/admin']);
+        } else {
+          this.router.navigate(['/user']);
+        }
+        
       } else {
         console.log('Invalid Cridentials');
       }

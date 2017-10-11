@@ -1,0 +1,28 @@
+<br><br><br>
+<div align="center">
+  <h3>Post Evaluation Page</h3>
+
+</div>
+
+<div>
+  <table id="example" class="table table-striped table-bordered" cellspacing="0">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Address</th>
+        <th>State</th>
+        <th class="hidden-xs">Zip Code</th>
+        <th class="hidden-xs">Start date</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let cust of customerInfos">
+        <td>{{cust.userRegistration.name}}</td>
+        <td>{{cust.userRegistration.address}}</td>
+        <td>{{cust.userRegistration.state}}</td>
+        <td class="hidden-xs">{{cust.userRegistration.zipCode}}</td>
+        <td class="hidden-xs">{{cust.userRegistration.createdTime}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
