@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { CustomerInfo } from '../../../model/customer.info';
+import { CustomerInfo } from '../../../model';
 
 @Component({
   selector: 'app-home',
@@ -8,7 +8,7 @@ import { CustomerInfo } from '../../../model/customer.info';
 })
 export class HomeComponent implements OnInit {
 
-  customerInfo: CustomerInfo;
+  customerInfo: CustomerInfo = new CustomerInfo();
   constructor() { }
 
   ngOnInit() {

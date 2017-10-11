@@ -1,0 +1,9 @@
+.input-group-addon
+{
+    background-color:#FFF;
+    width: 5px;
+}
+.input-group .input-group-addon + .form-control
+{
+    border-left:none;
+}

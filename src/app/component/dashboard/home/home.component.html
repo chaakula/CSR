@@ -1,6 +1,6 @@
 <br><br><br>
 <section class="container-fluid container">
-    <form class="bg-white px4 pb2" (ngSubmit)="evaluate()" #loginForm="ngForm">
+    <form class="bg-white px4 pb2" (ngSubmit)="evaluate()" #evelForm="ngForm">
 
         <div class="row">
             <div class="col-sm-6">
@@ -9,7 +9,7 @@
                     <label for="r1">First Time Buyer</label>
                     <div>
                         <div class="radio-inline">
-                            <label><input type="radio" name="r1" id="r1" value="Y" [(ngModel)]="customerInfo.firstTimeBuyer" > Yes</label>
+                            <label><input type="radio" name="r1" id="r1" value="Y" > Yes</label>
                         </div>
                         <div class="radio-inline">
                             <label><input type="radio" name="r1" id="r2" value="N"  checked> No</label>
@@ -18,7 +18,7 @@
                 </div>
 
                 <div class="form-group">
-                    <input type="text" class="form-control" placeholder="Full Name*" [(ngModel)]="customerInfo.fullName" required/>
+                    <input type="text" class="form-control" placeholder="Full Name*" [(ngModel)]="customerInfo.fullName" name="fullName" required/>
                 </div>
                 <div class="form-group">
                     <input type="text" class="form-control" placeholder="Address*" required/>
@@ -111,11 +111,11 @@
                 <div class="form-group">
                     <label for="r1">Payment Range:</label>
                     <div class="row">
-                        <div class="col-sm-5">
+                        <div class="col-sm-4">
                             <input type="text" class="form-control" placeholder="Min" />
                         </div>
-                        <div class="col-sm-2 form-control-static text-center">-</div>
-                        <div class="col-sm-5">
+                        <div class="col-sm-1 form-control-static text-center">-</div>
+                        <div class="col-sm-4">
                             <input type="text" class="form-control" placeholder="Max" />
                         </div>
                     </div>
