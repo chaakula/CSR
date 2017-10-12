@@ -1,6 +1,9 @@
 <br><br><br>
 <section class="container-fluid container">
-    <form class="bg-white px4 pb2" (ngSubmit)="evaluate()" #evelForm="ngForm">
+    <div class="alert alert-success" *ngIf="successMessage">
+        <strong>Success!</strong> User details submitted for evaluation.
+      </div>
+    <form class="bg-white px-6 pb-6" (ngSubmit)="evaluate()" #evelForm="ngForm">
 
         <div class="row">
             <div class="col-sm-6">
@@ -9,33 +12,44 @@
                     <label for="r1">First Time Buyer</label>
                     <div>
                         <div class="radio-inline">
-                            <label><input type="radio" name="r1" id="r1" value="Y" > Yes</label>
+                            <label><input type="radio" name="r1" id="r1" value="Y" > 
+                                <span class="glyphicon glyphicon-record"></span>
+                                Yes
+                            </label>
                         </div>
                         <div class="radio-inline">
-                            <label><input type="radio" name="r1" id="r2" value="N"  checked> No</label>
+                            <label><input type="radio" name="r1" id="r2" value="N"  checked> 
+                                <span class="glyphicon glyphicon-record"></span>
+                                No
+                            </label>
                         </div>
                     </div>
                 </div>
 
                 <div class="form-group">
-                    <input type="text" class="form-control" placeholder="Full Name*" [(ngModel)]="customerInfo.userRegistration.name" name="fullName" required/>
+                    <input type="text" class="form-control" placeholder="Full Name*" [(ngModel)]="customerInfo.userRegistration.name" name="fullName"
+                        required/>
                 </div>
                 <div class="form-group">
-                    <input type="text" class="form-control" placeholder="Address*" [(ngModel)]="customerInfo.userRegistration.address" name ="address" required/>
+                    <input type="text" class="form-control" placeholder="Address*" [(ngModel)]="customerInfo.userRegistration.address" name="address"
+                        required/>
                 </div>
                 <div class="form-group row">
                     <div class="col-sm-6">
-                        <input type="text" class="form-control" placeholder="State*" [(ngModel)]="customerInfo.userRegistration.state" name ="state" required/>
+                        <input type="text" class="form-control" placeholder="State*" [(ngModel)]="customerInfo.userRegistration.state" name="state"
+                            required/>
                     </div>
                     <div class="col-sm-6">
-                        <input type="text" class="form-control" placeholder="Zip Code*" [(ngModel)]="customerInfo.userRegistration.zipCode" name ="zipCode" required/>
+                        <input type="text" class="form-control" placeholder="Zip Code*" [(ngModel)]="customerInfo.userRegistration.zipCode" name="zipCode"
+                            required/>
                     </div>
                 </div>
                 <div class="form-group">
-                    <input type="text" class="form-control" placeholder="Social Security Number" [(ngModel)]="customerInfo.userRegistration.ssn" name ="ssn" />
+                    <input type="text" class="form-control" placeholder="Social Security Number" [(ngModel)]="customerInfo.userRegistration.ssn"
+                        name="ssn" />
                 </div>
                 <div class="form-group">
-                    <select class="form-control" name="s1" [(ngModel)]="customerInfo.userRegistration.jobTime" name ="jobTime" required>
+                    <select class="form-control" name="s1" [(ngModel)]="customerInfo.userRegistration.jobTime" name="jobTime" required>
                         <option value="0">Job Time (Months)*</option>
                         <option value="6">6 Months</option>
                         <option value="12">12 Months</option>
@@ -43,7 +57,7 @@
                     </select>
                 </div>
                 <div class="form-group">
-                    <select class="form-control" name="s2" [(ngModel)]="customerInfo.userRegistration.payFrequency" name ="payFrequency" required>
+                    <select class="form-control" name="s2" [(ngModel)]="customerInfo.userRegistration.payFrequency" name="payFrequency" required>
                         <option value="0">Pay Frequency*</option>
                         <option value="1">Monthly</option>
                         <option value="3">3 Months</option>
@@ -52,49 +66,59 @@
                 </div>
                 <div class="form-group">
                     <label for="r1">What are your paid per pay period? <br />(gross before taxes)*</label>
-                    <input type="text" class="form-control" placeholder="Type response here" [(ngModel)]="customerInfo.userRegistration.reason" name ="reason" />
+                    <input type="text" class="form-control" placeholder="Type response here" [(ngModel)]="customerInfo.userRegistration.reason"
+                        name="reason" />
                 </div>
                 <div class="form-group">
                     <label for="r1">Co-Signer *</label>
                     <div>
                         <div class="radio-inline">
-                            <label><input type="radio" name="r3" id="r3" value="Y" [(ngModel)]="customerInfo.userRegistration.cosDigner"> Yes</label>
+                            <label><input type="radio" name="r3" id="r3" value="Y" [(ngModel)]="customerInfo.userRegistration.cosDigner"> 
+                                <span class="glyphicon glyphicon-record"></span>
+                                Yes</label>
                         </div>
                         <div class="radio-inline">
-                            <label><input type="radio" name="r3" id="r4" value="N" [(ngModel)]="customerInfo.userRegistration.coApplicant" checked> No</label>
+                            <label><input type="radio" name="r3" id="r4" value="N" [(ngModel)]="customerInfo.userRegistration.cosDigner" checked>
+                                <span class="glyphicon glyphicon-record"></span>
+                                 No</label>
                         </div>
                     </div>
                 </div>
 
                 <div *ngIf="customerInfo.userRegistration.cosDigner === 'Y'">
                     <div class="form-group">
-                        <input type="text" class="form-control" placeholder="Full Name*" [(ngModel)]="customerInfo.userRegistration.cName"  name="cName" required/>
+                        <input type="text" class="form-control" placeholder="Full Name*" [(ngModel)]="customerInfo.userRegistration.cName" name="cName"
+                            required/>
                     </div>
                     <div class="form-group">
-                        <input type="text" class="form-control" placeholder="Address*" [(ngModel)]="customerInfo.userRegistration.cAddress"  name="cAddress"  required/>
+                        <input type="text" class="form-control" placeholder="Address*" [(ngModel)]="customerInfo.userRegistration.cAddress" name="cAddress"
+                            required/>
                     </div>
                     <div class="form-group row">
                         <div class="col-sm-6">
-                            <input type="text" class="form-control" placeholder="State*"  [(ngModel)]="customerInfo.userRegistration.cState"  name="cState" required/>
+                            <input type="text" class="form-control" placeholder="State*" [(ngModel)]="customerInfo.userRegistration.cState" name="cState"
+                                required/>
                         </div>
                         <div class="col-sm-6">
-                            <input type="text" class="form-control" placeholder="Zip Code*" [(ngModel)]="customerInfo.userRegistration.cZipCode"  name="cZipCode" required/>
+                            <input type="text" class="form-control" placeholder="Zip Code*" [(ngModel)]="customerInfo.userRegistration.cZipCode" name="cZipCode"
+                                required/>
                         </div>
                     </div>
                     <div class="form-group">
-                        <input type="text" class="form-control" placeholder="Social Security Number" [(ngModel)]="customerInfo.userRegistration.cSsn"  name="cSsn"   />
+                        <input type="text" class="form-control" placeholder="Social Security Number" [(ngModel)]="customerInfo.userRegistration.cSsn"
+                            name="cSsn" />
                     </div>
                     <div class="form-group">
-                        <select class="form-control" name="jt1" required [(ngModel)]="customerInfo.userRegistration.cJobTime"  name="cJobTime"  >
-                        <option value="0">Job Time (Months)*</option>
+                        <select class="form-control" name="jt1" required [(ngModel)]="customerInfo.userRegistration.cJobTime" name="cJobTime">
+                        <option value="">Job Time (Months)*</option>
                         <option value="6">6 Months</option>
                         <option value="12">12 Months</option>
                         <option value="24">24 Months</option>
                     </select>
                     </div>
                     <div class="form-group">
-                        <select class="form-control" name="jt2" required [(ngModel)]="customerInfo.userRegistration.cPayFrequency"  name="cPayFrequency" >
-                        <option value="0">Pay Frequency*</option>
+                        <select class="form-control" name="jt2" required [(ngModel)]="customerInfo.userRegistration.cPayFrequency" name="cPayFrequency">
+                        <option value="">Pay Frequency*</option>
                          <option value="1">Monthly</option>
                         <option value="3">3 Months</option>
                         <option value="6">6 Months</option>
@@ -106,60 +130,77 @@
             <div class="col-sm-6">
                 <h4><b>LOAN INFORMATION</b></h4>
                 <div class="form-group pd10">
-                    <input type="text" class="form-control" placeholder="Down Payment"  [(ngModel)]="customerInfo.userLoanInformation.downPayment"  name="downPayment" />
+                    <input type="text" class="form-control" placeholder="Down Payment" [(ngModel)]="customerInfo.userLoanInformation.downPayment"
+                        name="downPayment" />
                 </div>
                 <div class="form-group">
                     <label for="r1">Payment Range:</label>
                     <div class="row">
                         <div class="col-sm-4">
-                            <input type="text" class="form-control" placeholder="Min"  [(ngModel)]="customerInfo.userLoanInformation.minPaymentRange"  name="minPaymentRange" />
+                            <input type="text" class="form-control" placeholder="Min" [(ngModel)]="customerInfo.userLoanInformation.minPaymentRange"
+                                name="minPaymentRange" />
                         </div>
                         <div class="col-sm-1 form-control-static text-center">-</div>
                         <div class="col-sm-4">
-                            <input type="text" class="form-control" placeholder="Max" [(ngModel)]="customerInfo.userLoanInformation.maxPaymentRange"  name="maxPaymentRange" />
+                            <input type="text" class="form-control" placeholder="Max" [(ngModel)]="customerInfo.userLoanInformation.maxPaymentRange"
+                                name="maxPaymentRange" />
                         </div>
                     </div>
                 </div>
                 <div class="form-group row">
                     <div class="col-sm-6">
-                        <input type="text" class="form-control" placeholder="State*" [(ngModel)]="customerInfo.userLoanInformation.state"  name="lstate" required/>
+                        <input type="text" class="form-control" placeholder="State*" [(ngModel)]="customerInfo.userLoanInformation.state" name="lstate"
+                            required/>
                     </div>
                     <div class="col-sm-6">
-                        <input type="text" class="form-control" placeholder="Zip Code*" [(ngModel)]="customerInfo.userLoanInformation.zipCode"  name="lzipCode"  required/>
+                        <input type="text" class="form-control" placeholder="Zip Code*" [(ngModel)]="customerInfo.userLoanInformation.zipCode" name="lzipCode"
+                            required/>
                     </div>
                 </div>
                 <div class="form-group">
-                    <input type="text" class="form-control" placeholder="Vehical Year*" [(ngModel)]="customerInfo.userLoanInformation.vehicleYear"  name="vehicleYear"  required />
+                    <input type="text" class="form-control" placeholder="Vehical Year*" [(ngModel)]="customerInfo.userLoanInformation.vehicleYear"
+                        name="vehicleYear" required />
                 </div>
                 <div class="form-group">
-                    <input type="text" class="form-control" placeholder="Vehical Mileage*" [(ngModel)]="customerInfo.userLoanInformation.vehicleMilage"  name="vehicleMilage"  required />
+                    <input type="text" class="form-control" placeholder="Vehical Mileage*" [(ngModel)]="customerInfo.userLoanInformation.vehicleMilage"
+                        name="vehicleMilage" required />
                 </div>
                 <div class="form-group">
-                    <input type="text" class="form-control" placeholder="Vehical Book Value*" required  [(ngModel)]="customerInfo.userLoanInformation.vehicleBookValue"  name="vehicleBookValue" />
+                    <input type="text" class="form-control" placeholder="Vehical Book Value*" required [(ngModel)]="customerInfo.userLoanInformation.vehicleBookValue"
+                        name="vehicleBookValue" />
                 </div>
                 <div class="form-group">
                     <label for="r1">Tradein: *</label>
                     <div>
                         <div class="radio-inline">
-                            <label><input type="radio"  id="r5" value="Y" [(ngModel)]="customerInfo.userLoanInformation.tradeIn"  name="tradeIn"  > Yes</label>
+                            <label><input type="radio"  id="r5" value="Y" [(ngModel)]="customerInfo.userLoanInformation.tradeIn"  name="tradeIn"  > 
+                                <span class="glyphicon glyphicon-record"></span>
+                                Yes
+                            </label>
                         </div>
                         <div class="radio-inline">
-                            <label><input type="radio" id="r6" value="N" [(ngModel)]="customerInfo.userLoanInformation.tradeIn"  name="tradeIn" checked> No</label>
+                            <label><input type="radio" id="r6" value="N" [(ngModel)]="customerInfo.userLoanInformation.tradeIn"  name="tradeIn" checked> 
+                                <span class="glyphicon glyphicon-record"></span>
+                                No
+                            </label>
                         </div>
                     </div>
                 </div>
                 <div class="form-group">
-                    <input type="text" class="form-control" placeholder="Trade Amount Owed*" [(ngModel)]="customerInfo.userLoanInformation.tradeInAmountOwned"  name="tradeInAmountOwned" required />
+                    <input type="text" class="form-control" placeholder="Trade Amount Owed*" [(ngModel)]="customerInfo.userLoanInformation.tradeInAmountOwned"
+                        name="tradeInAmountOwned" required />
                 </div>
                 <div class="form-group">
-                    <input type="text" class="form-control" placeholder="Tradein Amount To Credit*" [(ngModel)]="customerInfo.userLoanInformation.tradeInAmountToCredit"  name="tradeInAmountToCredit" required />
+                    <input type="text" class="form-control" placeholder="Tradein Amount To Credit*" [(ngModel)]="customerInfo.userLoanInformation.tradeInAmountToCredit"
+                        name="tradeInAmountToCredit" required />
                 </div>
-                
+
                 <div class="form-group">
                     <label for="r1">Loan Term Length</label>
                     <div class="row">
                         <div class="col-sm-6">
-                            <input type="text" class="form-control" placeholder="--"  [(ngModel)]="customerInfo.userLoanInformation.loanTermLength"  name="loanTermLength"/>
+                            <input type="text" class="form-control" placeholder="" [(ngModel)]="customerInfo.userLoanInformation.loanTermLength" name="loanTermLength"
+                            />
                         </div>
                         <div class="col-sm-6">
                             <p class="form-control-static">Months</p>
@@ -169,8 +210,9 @@
             </div>
         </div>
         <div>
-            <button type="button" class="btn btn-default text-uppercase mln2">Clear Info</button>
-            <button type="submit" class="btn btn-primary text-uppercase pull-right mrn2">Evaluate</button>
+            <button type="button" class="btn btn-default text-uppercase mln2" (click)="clear()">Clear Info</button>
+            <button type="submit" class="btn btn-primary text-uppercase pull-right mrn-3">Evaluate</button>
         </div>
+        <br />
     </form>
 </section>

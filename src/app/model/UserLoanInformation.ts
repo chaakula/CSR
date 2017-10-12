@@ -13,6 +13,6 @@ export class UserLoanInformation {
     public loanTermLength: number;
 
     constructor() {
-
+        this.tradeIn = 'N';
     }
 }

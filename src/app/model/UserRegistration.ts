@@ -16,7 +16,9 @@ export class UserRegistration {
     public cSsn: string;
     public cJobTime: number;
     public cPayFrequency: number;
-    public createdTime:string;
-    constructor() { };
+    public createdTime: string;
+    constructor() {
+        this.cosDigner = 'N';
+    };
 
 }
