@@ -10,6 +10,8 @@ export class RegistrationService {
 
   private evaluateUrl = 'http://localhost:8080/evaluate';
 
+  private selectedCust: CustomerInfo;
+
   constructor(private http: Http) { }
 
   evaluate(customerInfo: CustomerInfo) {
@@ -44,5 +46,15 @@ export class RegistrationService {
     return Observable.throw(error);
   }
 
+  selectedCustomer(selectedCustomer){
+    this.selectedCust = selectedCustomer;
+  }
+  clearSelection(){
+    this.selectedCust = new CustomerInfo();
+  }
+
+  getSelectedCust(){
+    return this.selectedCust;
+  }
 
 }

@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { CustomerInfo, User } from '../../../model';
 import { RegistrationService } from './../../../services/registration.service';
 import { Observable } from 'rxjs/Observable';
+import { ActivatedRoute } from "@angular/router";
 
 @Component({
   selector: 'app-home',
@@ -15,7 +16,11 @@ export class HomeComponent implements OnInit {
   successMessage = false;
   users: User[];
 
-  constructor(private registrationService: RegistrationService) { }
+  constructor(private registrationService: RegistrationService, private route: ActivatedRoute) {
+    this.route.params.subscribe(params => {
+      this.customerInfo = registrationService.getSelectedCust();
+    });
+  }
 
   ngOnInit() {
 
@@ -28,7 +33,7 @@ export class HomeComponent implements OnInit {
     this.registrationService.evaluate(this.customerInfo).subscribe(
       users => this.users = users,
       error => this.errorMessage = <any>error);
-      this.topFunction();
+    this.topFunction();
     this.successMessage = true;
     this.run();
     this.clear();

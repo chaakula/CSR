@@ -50,7 +50,7 @@
                 </div>
                 <div class="form-group">
                     <select class="form-control" name="s1" [(ngModel)]="customerInfo.userRegistration.jobTime" name="jobTime" required>
-                        <option value="0">Job Time (Months)*</option>
+                        <option value="">Job Time (Months)*</option>
                         <option value="6">6 Months</option>
                         <option value="12">12 Months</option>
                         <option value="24">24 Months</option>
@@ -58,7 +58,7 @@
                 </div>
                 <div class="form-group">
                     <select class="form-control" name="s2" [(ngModel)]="customerInfo.userRegistration.payFrequency" name="payFrequency" required>
-                        <option value="0">Pay Frequency*</option>
+                        <option value="">Pay Frequency*</option>
                         <option value="1">Monthly</option>
                         <option value="3">3 Months</option>
                         <option value="6">6 Months</option>
@@ -118,7 +118,7 @@
                     </div>
                     <div class="form-group">
                         <select class="form-control" name="jt2" required [(ngModel)]="customerInfo.userRegistration.cPayFrequency" name="cPayFrequency">
-                        <option value="">Pay Frequency*</option>
+                        <option value="" selected=""true>Pay Frequency*</option>
                          <option value="1">Monthly</option>
                         <option value="3">3 Months</option>
                         <option value="6">6 Months</option>
@@ -213,6 +213,5 @@
             <button type="button" class="btn btn-default text-uppercase mln2" (click)="clear()">Clear Info</button>
             <button type="submit" class="btn btn-primary text-uppercase pull-right mrn-3">Evaluate</button>
         </div>
-        <br />
     </form>
 </section>

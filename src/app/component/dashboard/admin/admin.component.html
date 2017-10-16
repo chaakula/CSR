@@ -16,7 +16,7 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let cust of customerInfos">
+      <tr *ngFor="let cust of customerInfos" (click)="selectedRow(cust)">
         <td>{{cust.userRegistration.name}}</td>
         <td>{{cust.userRegistration.address}}</td>
         <td>{{cust.userRegistration.state}}</td>

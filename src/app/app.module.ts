@@ -31,6 +31,11 @@ import { RegistrationService } from './services/registration.service';
         component: HomeComponent
       },
       {
+        path: 'user/:name',
+        component: HomeComponent
+      },
+      
+      {
         path: 'admin',
         component: AdminComponent
       },
