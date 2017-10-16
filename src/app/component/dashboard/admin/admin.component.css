@@ -19,3 +19,5 @@ div{
   margin-top:8px;
   margin-bottom:8px;
 }
+
+.hoverTable tr:hover{background-color:lightgreen;}
